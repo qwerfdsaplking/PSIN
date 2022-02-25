@@ -21,33 +21,42 @@ To obtain reliable ground truth labels on veracity of news, the most common solu
 After the data retrieval and construction, we obtain a fake news dataset with 27,155 news events from five topics: Politics, Enter-tainment, Health, Covid-19 and Syria War, 5 million posts, 2 million users and an induced user social graph with 0.2 billion edges. Table 1 illustrates the statistics of collected datasets. Here we compare the distributions of tweets count, retweets count, reply count and user count to illustrate the difference between fake and real news. 
 
 
-<center>**Table 1: The statistics of the dataset**</center>
+<center>Table 1: The statistics of the dataset</center>
 ![The statistics of the dataset](./assets/dataset.png)
 
-
+### Method
 In this section, we introduce our proposed Post-User Interaction Network (PSIN). Although the posts and users constitute a heterogeneous graph, their intrinsic characteristics limit the effectiveness of off-the-shelf heterogeneous graph models. For example, the tree structures of post-post subgraph is quite different from the directed user-user subgraph. To solve these issues, we design an organized learning mechanism based on divide-and-conquer strategy to integrate different aspects while maintaining their intrinsic characteristics. Generally, we decompose the original graph into three parts: post propagation tree, user social graph and post-user interaction graph and process them individually, then, we perform the integration process at the end. As illustrated in Figure 3, our model generally includes five parts: Hybrid Node Feature Encoder (HNFD) for node representation, Tree Graph Attention Network (Tree-GAT) for post tree modeling, Relational Graph Attention Network (R-GAT) for user graph modeling, a post-user fusion layer for information interaction based on user behaviours, and a veracity classifier with an additional adversarial topic discriminator for topic-agnostic model learning.
 
 
-<center>**Figure 1: The architecture of PSIN**</center>
+<center>Figure 1: The architecture of PSIN</center>
 ![The architecture of PSIN](./assets/architecture.png)
 
 
 ### Key Results
-<center>**Table 2: Details of the out-of-topic split.**</center>
+Tables 3 and 4 show the performance of the proposed method and all the compared methods in in-topic setting and out-of-topic set-ting. From the results, we can make the following observations: (1) The results of all models on out-of-topic split mode are obviously inferior to that of in-topic split, demonstrating that the distribution shift issue makes the detection of newly-emerged news challenging. We can observe that our proposed PSIN(-T) and PSIN achieve state-of-the-art performance on both settings. Our model jointly model post-post, user-post and user-user graphs based on their own intrinsic properties and fuse them effectively, strengthening the capability of feature representation.
+
+
+<center>Table 2: Details of the out-of-topic split</center>
 <div align=center><img src="./assets/datasplit.png" width="400" alt="Table 2: Details of the out-of-topic split"/></div>
 
-<center>**Table 3: The results of all methods in the in-topic setting.**</center>
+<center>Table 3: The results of all methods in the in-topic setting</center>
 <div align=center><img src="./assets/intopic.png" width="200" alt="Table 3: The results of all methods in the in-topic setting."/></div>
 
-<center>**Table 4: The results of all methods in the out-of-topic setting.**</center>
+<center>Table 4: The results of all methods in the out-of-topic setting</center>
 <div align=center><img src="./assets/crosstopic.png" width="500" alt="Table 4: The results of all methods in the out-of-topic setting."/></div>
 
 
 ### Code and Datasets
-We release our dataset on GitHub.
+We release our dataset on [GitHub](https://github.com/qwerfdsaplking/MC-Fake)
 
 ### Contributors
-
+Erxue Min
+Yu Rong
+Yatao Bian
+Tingyang Xu
+Peilin Zhao
+Junzhou Huang
+Sophia Ananiadou
 
 
 ### References
