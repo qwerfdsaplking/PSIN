@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+## Divide-and-Conquer: Post-User Interaction Network for Fake News Detection on Social Media
 
-You can use the [editor on GitHub](https://github.com/qwerfdsaplking/PSIN/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+In this work, we formulate social context based fake news detection as a heterogeneous graph classification problem, and propose a fake news detection model named Post-User Interaction Network (PSIN), which adopts a divide-and-conquer strategy to model the post-post, user-user and post-user interactions in social context effectively while maintaining their intrinsic characteristics. Moreover,we adopt an adversarial topic discriminator for topic-agnostic feature learning, in order to improve the generalizability of our method for new-emerging top-ics. Furthermore, we curate a new dataset for fake news detection, which contains over 27,155 news from 5 topics, 5 million posts, 2 million users and their induced social graph with 0.2 billion edges. It has been published on https://github.com/qwerfdsaplking/MC-Fake. Extensive experiments illustrate that our method outperforms SOTA baselines in both in-topic and out-of-topic settings.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Motivation
+- Method
+- Key Results
+- Code and Datasets
+- Contributors
+- References
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+###Motivation
 
-```markdown
-Syntax highlighted code block
+Fake News detection has attracted much attention in recent years. Social context based detection methods attempt to model the spreading patterns of fake news by utilizing the collective wisdom from users on social media. This task is challenging for three reasons: (1) There are multiple types of entities and relations in social context, requiring methods to effectively model the heterogeneity. (2) The emergence of news in novel topics in social media causes distribution shifts, which can significantly degrade the performance of fake news detectors. (3) Existing fake news datasets usually lack of great scale, topic diversity and user social relations, impeding the development of this field.
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+###Dataset
+To obtain reliable ground truth labels on veracity of news, the most common solution is to utilize fact-checking websites such as PolitiFact, Snope and so on. There are already many previous work along this line of research. Therefore, we do not repeat this actions, instead, we collect labelled fake news from existing datasets and collect real news from reliable sources. We conduct a uniform filter criterion to select reliable instance. Then we retrieve related tweets, retweets and replies, with the corresponding users on the Twitter platform. The “following” relationship between users are also retrieved to obtain the induced user network. 
 
-1. Numbered
-2. List
+After the data retrieval and construction, we obtain a fake news dataset with 27,155 news events from five topics: Politics, Enter-tainment, Health, Covid-19 and Syria War, 5 million posts, 2 million users and an induced user social graph with 0.2 billion edges. Table 1 illustrates the statistics of collected datasets. Here we compare the distributions of tweets count, retweets count, reply count and user count to illustrate the difference between fake and real news. 
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+![](./assets/dataset.png)
 
-### Jekyll Themes
+In this section, we introduce our proposed Post-User Interaction Network (PSIN). Although the posts and users constitute a heterogeneous graph, their intrinsic characteristics limit the effectiveness of off-the-shelf heterogeneous graph models. For example, the tree structures of post-post subgraph is quite different from the directed user-user subgraph. To solve these issues, we design an organized learning mechanism based on divide-and-conquer strategy to integrate different aspects while maintaining their intrinsic characteristics. Generally, we decompose the original graph into three parts: post propagation tree, user social graph and post-user interaction graph and process them individually, then, we perform the integration process at the end. As illustrated in Figure 3, our model generally includes five parts: Hybrid Node Feature Encoder (HNFD) for node representation, Tree Graph Attention Network (Tree-GAT) for post tree modeling, Relational Graph Attention Network (R-GAT) for user graph modeling, a post-user fusion layer for information interaction based on user behaviours, and a veracity classifier with an additional adversarial topic discriminator for topic-agnostic model learning.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/qwerfdsaplking/PSIN/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+![](./assets/architecture.png)
+
+###Key Results
+<div align=center><img src="./assets/datasplit.png" width="400" alt="Table 2: Details of the out-of-topic split"/></div>
+<div align=center><img src="./assets/intopic.png" width="200" alt="Table 3: The results of all methods in the in-topic setting."/></div>
+<div align=center><img src="./assets/crosstopic.png" width="500" alt="Table 4: The results of all methods in the out-of-topic setting."/></div>
+
+
+###Code and Datasets
+We release our dataset on GitHub.
+
+###Contributors
+
+
+
+###References
+
+
+
+
+
+
