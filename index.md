@@ -31,9 +31,9 @@ In this section, we introduce our proposed Post-User Interaction Network (PSIN).
 ![](./assets/architecture.png)
 
 ###Key Results
-<div align=center><img src="./assets/datasplit.png" width="400" alt="Table 2: Details of the out-of-topic split"/></div>
-<div align=center><img src="./assets/intopic.png" width="200" alt="Table 3: The results of all methods in the in-topic setting."/></div>
-<div align=center><img src="./assets/crosstopic.png" width="500" alt="Table 4: The results of all methods in the out-of-topic setting."/></div>
+<div align=center><img src="https://github.com/qwerfdsaplking/PSIN/edit/gh-pages/index/assets/datasplit.png" width="400" alt="Table 2: Details of the out-of-topic split"/></div>
+<div align=center><img src="https://github.com/qwerfdsaplking/PSIN/edit/gh-pages/index/assets/intopic.png" width="200" alt="Table 3: The results of all methods in the in-topic setting."/></div>
+<div align=center><img src="https://github.com/qwerfdsaplking/PSIN/edit/gh-pages/index/assets/crosstopic.png" width="500" alt="Table 4: The results of all methods in the out-of-topic setting."/></div>
 
 
 ###Code and Datasets
