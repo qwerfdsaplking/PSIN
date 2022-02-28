@@ -50,13 +50,13 @@ Tables 3 and 4 show the performance of the proposed method and all the compared 
 We release our dataset on [GitHub](https://github.com/qwerfdsaplking/MC-Fake)
 
 ### Contributors
-Erxue Min
-Yu Rong
-Yatao Bian
-Tingyang Xu
-Peilin Zhao
-Junzhou Huang
-Sophia Ananiadou
+- Erxue Min
+- Yu Rong
+- Yatao Bian
+- Tingyang Xu
+- Peilin Zhao
+- Junzhou Huang
+- Sophia Ananiadou
 
 
 ### References
